@@ -1,2 +1,6 @@
 ---
 # handlers file for supervisord-config
+- name: reload supervisord
+  supervisorctl:
+    name: pyserver
+    state: restarted
