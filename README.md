@@ -7,9 +7,9 @@ Small test using vagrant and ansible for deploying an image with nginx and super
 Requirements
 ------------
 
-- vagrant
-- virtualbox
-- ansible
+- vagrant https://www.vagrantup.com/docs/installation/
+- virtualbox https://www.virtualbox.org/wiki/Downloads
+- ansible http://docs.ansible.com/ansible/intro_installation.html
 
 Usage
 -----
