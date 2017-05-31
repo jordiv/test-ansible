@@ -14,9 +14,9 @@ Requirements
 Usage
 -----
 
-After doing `vagrant up` launch:
+Launch `vagrant up`
 
-If everything went nice launch the test like this:
+If everything went nice run it:
 
 $ curl testapp:8080/hello
 hello
