@@ -18,7 +18,7 @@ Launch `vagrant up`
 
 If everything went nice run it:
 
-$ curl http://testapp/hello
+$ `curl http://testapp/hello`
 
 hello
 
