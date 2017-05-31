@@ -11,3 +11,13 @@ Requirements
 - virtualbox
 - ansible
 
+Usage
+-----
+
+After doing `vagrant up` launch:
+
+If everything went nice launch the test like this:
+
+$ curl testapp:8080/hello
+hello
+
