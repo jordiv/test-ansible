@@ -1,0 +1,28 @@
+- hosts: nginx
+  remote_user: vagrant
+  become: yes
+  vars:
+    - nginx_reverse_proxy_proxies:
+      - config_name: testapp.conf
+        backend_name: my-backend-1
+        backends:
+          - localhost:3000 weight=2
+        domains:
+          - testapp
+        balancer_config: ip_hash
+
+  roles:
+    - nginxpackages
+    - ansible-nginx-reverse-proxy
+    - role: supervisord
+      supervisord_programs:
+       pyserver:
+        program_name: "pyserver"
+        user: "vagrant"
+        command: "python server.py"
+        directory: "/vagrant_data" 
+        autostart: "true"
+        autorestart: "true"
+        redirect_stderr: "true"
+        stdout_logfile: "/var/log/supervisor/server.log"
+        stderr_logfile: "/var/log/supervisor/server.err.log"
