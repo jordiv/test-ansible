@@ -3,7 +3,7 @@
   become: yes
   vars:
     - nginx_reverse_proxy_proxies:
-      - config_name: testapp.conf
+      - config_name: testapp
         backend_name: my-backend-1
         backends:
           - localhost:3000 weight=2
@@ -17,12 +17,12 @@
     - role: supervisord
       supervisord_programs:
        pyserver:
-        program_name: "pyserver"
-        user: "vagrant"
-        command: "python server.py"
-        directory: "/vagrant_data" 
-        autostart: "true"
-        autorestart: "true"
-        redirect_stderr: "true"
-        stdout_logfile: "/var/log/supervisor/server.log"
-        stderr_logfile: "/var/log/supervisor/server.err.log"
+        - program_name: "pyserver"
+        - user: "vagrant"
+        - command: "python server.py"
+        - directory: /vagrant_data
+        - autostart: "true"
+        - autorestart: "true"
+        - redirect_stderr: "true"
+        - stdout_logfile: /var/log/supervisor/server.log
+        - stderr_logfile: /var/log/supervisor/server.err.log

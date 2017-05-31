@@ -18,5 +18,6 @@ Vagrant.configure(2) do |config|
   end
   config.vm.provision 'ansible' do |ansible|
     ansible.playbook = 'tasks/nginx-reverse-proxy.yml'
+    ansible.raw_arguments = ['--check', '-vvvv']
   end
 end
